@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { Tcollections } from '../../types'
 import charCounter from '../../utils/charCounter'
 import fetchData from '../../utils/fetchData'
+import getLocations from '../../utils/getLocations'
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,6 +12,7 @@ export default async function handler(
   const collections: Tcollections = ['characters', 'locations', 'episodes']
   const data = await fetchData(collections)
   const counters = charCounter(data, collections)
+  const locations = getLocations(data)
   res.status(200).send([
     {
       exercise_name: 'Char counter',
@@ -38,7 +40,7 @@ export default async function handler(
       exercise_name: 'Episode locations',
       time: 1,
       in_time: true,
-      results: []
+      results: locations
     }
   ])
 }
