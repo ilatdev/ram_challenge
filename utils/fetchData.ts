@@ -17,11 +17,15 @@ const RAM_API: RAM_API_Type = {
 }
 
 /**
- * It takes an array of strings, and returns an object with the same keys as the array, but with the
- * values being an array of objects
- * @param {collectionsArray} collections - an array of strings that represent the collections you want
- * to fetch. 'characters' | 'locations' | 'episodes'
+ * It takes an array of strings as an argument, and returns an object with the same keys as the array,
+ * but with the values being the data from the API
+ * @param {Tcollections} collections - Tcollections
  * @returns An object with the following shape:
+ * {
+ *   characters: [],
+ *   locations: [],
+ *   episodes: []
+ * }
  */
 const fetchData = async function (collections: Tcollections) {
   let data = <IresponseShape>{}
