@@ -13,7 +13,7 @@ const countCharacter = (arrayData: string[], character: string) =>
  * to count characters in.
  * @returns An object with the number of characters, locations, and episodes.
  */
-const charCount = (data: IresponseShape, collections: Tcollections) => {
+const charCounter = (data: IresponseShape, collections: Tcollections) => {
   const charToCount = { characters: 'c', locations: 'l', episodes: 'e' }
 
   let counters: any = {}
@@ -29,4 +29,4 @@ const charCount = (data: IresponseShape, collections: Tcollections) => {
   return counters
 }
 
-export default charCount
+export default charCounter
